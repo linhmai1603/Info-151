@@ -6,24 +6,27 @@
     <script>
         var area = 0;
         var perimeter = 0;
+        //prompt the user for the length and width
         var length = prompt("Enter the length of the rectangle",0);
         length = parseFloat(length);
         var width = prompt("Enter the width of the rectangle",0);
         width = parseFloat(width);
+        //calculate the area and perimeter
         area = length*width;
-        area = parseFloat(area);
+        area = parseFloat(Math.round(area*100)/100).toFixed(2);
         perimeter = 2*(length+width);
-        perimeter = parseFloat(perimeter);
+        perimeter = parseFloat(Math.round(perimeter*100)/100).toFixed(2);
     </script>
 </head>
 <body>
     <main>
         <h3> The Area and Perimeter App</h3>
         <script>
+            //print the result on the webpage
               document.write("Length = " +length +"<br>");  
               document.write("Width = " + width+"<br>");
               document.write("Area = " +area+"<br>");
-              document.write("Width = " +width+"<br>");
+              document.write("Perimeter = " +perimeter+"<br>");
         </script>
 
         Thanks for using the Area and Perimeter application!
