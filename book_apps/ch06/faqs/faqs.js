@@ -3,14 +3,17 @@ var $ = function(id) { return document.getElementById(id); };
 
 // the event handler for the click event of each h2 element
 var toggle = function() {
-    var h2 = this;                    // clicked h2 tag     
+    var a = this;                    // clicked h2 tag     
+	var h2 = a.parentElement;
     var div = h2.nextElementSibling;  // h2 tag's sibling div tag
 
     // toggle plus and minus image in h2 elements by adding or removing a class
-    if (h2.hasAttribute("class")) { 
-        h2.removeAttribute("class");	
+    if (a.hasAttribute("class")) { 
+        a.removeAttribute("class");	
+		h2.removeAttribute("class");
     } else { 
-        h2.setAttribute("class", "minus"); 
+        a.setAttribute("class","minus"); 
+		h2.setAttribute("class", "minus");
     }
 
     // toggle div visibility by adding or removing a class
@@ -24,7 +27,7 @@ var toggle = function() {
 window.onload = function() {
     // get the h2 tags
     var faqs = $("faqs");
-    var h2Elements = faqs.getElementsByTagName("h2");
+    var h2Elements = faqs.getElementsByTagName("a");
     
     // attach event handler for each h2 tag	    
     for (var i = 0; i < h2Elements.length; i++ ) {
