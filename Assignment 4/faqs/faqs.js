@@ -4,10 +4,10 @@ var $ = function(id) { return document.getElementById(id); };
 // the event handler for the click event of each a element
 var toggle = function() {
     var a = this;                    // clicked a tag 
-	var h2 = a.parentElement;
+	var h2 = a.parentElement;		//select h2 element of the a tag
     var divs = h2.nextElementSibling;  // h2 tag's sibling div tag
 	
-    // toggle plus and minus image in h2 elements by adding or removing a class
+    // toggle plus and minus image in a elements by adding or removing a class
     if (a.hasAttribute("class")) { 
         //a.removeAttribute("class");	
 		  a.className = '';
@@ -32,14 +32,14 @@ var toggle = function() {
 };
 
 window.onload = function() {
-    // get the h2 tags
+    // get the a tags
     var faqs = $("faqs");
     var aElements = faqs.getElementsByTagName("a");
     
-    // attach event handler for each h2 tag	    
+    // attach event handler for each a tag	    
     for (var i = 0; i < aElements.length; i++ ) {
     	aElements[i].onclick = toggle;
     }
-    // set focus on first h2 tag's <a> tag
-    aElements[0].firstChild.focus();       
+    // set focus on first <a> tag
+    aElements[0].focus();       
 };
