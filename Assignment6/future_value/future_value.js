@@ -21,7 +21,6 @@ $(document).ready(function() {
     	}
 		//alert("The maximum value of a javascript number is: " + Number.MAX_VALUE);
     	futureValue = futureValue.toFixed(2);
-		alert(futureValue);
 		var result = formatFV(futureValue);
 		return result;
 	};
@@ -36,7 +35,30 @@ $(document).ready(function() {
 		}
 		return str;
 	};
-
+	var getDate = function(){
+		var dateString = 'Today is ';
+		var now = new Date();
+		var year = now.getFullYear();
+		var month = now.getMonth() +1;
+		var day = now.getDate();
+		var hours = now.getHours();
+		var minutes = now.getMinutes();
+		if(month < 10){
+			month = "0" + month;
+		}
+		dateString += month+"/";
+		if(day < 10){
+			day = "0" + day;
+		}
+		if(hours < 10){
+			hours = "0" + hours;
+		}
+		if(minutes < 10){
+			minutes = "0" + minutes;
+		}
+		dateString += day+"/"+year +" at " +hours+":"+minutes;
+		return dateString;
+	}
 	$("#calculate").click( function() {
     	//var investment = parseFloat( $("#investment").val() );
 		var investment = getRandomNumber(50000);
@@ -60,8 +82,7 @@ $(document).ready(function() {
 		else {
 			$("#future_value").val(calculateFV(investment,rate,years));
 		}
+		document.getElementById("date").innerHTML = getDate();
 	});
-	
-    $("#investment").focus();
 });
 

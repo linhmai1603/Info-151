@@ -78,17 +78,17 @@ $(document).ready(function() {
 			}
 			$("#zip").val(zipCode);	
 			// validate the check boxes	
-			var selected = [];
-			$("input:checkbox[id=type]").each(function(){
-				selected.push($(this).val());
-			});
-			if(selected.length == 0){
+			//var selected = [];
+			//$("input:[type=checkbox]:checked").each(function(i){
+			//	selected.push(i.value);
+			//});
+			/*if(selected.length == 0){
 				$("#net").next().text("This field is required.");
 				isValid = false;
 				alert(selected.legth);
 			}else{
 				$("#net").next().text("");
-			}
+			}*/
 			// prevent the default action of submitting the form if any entries are invalid 
 			if (isValid == false) {
 			 	event.preventDefault();		
